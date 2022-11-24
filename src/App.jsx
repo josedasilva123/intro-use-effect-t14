@@ -1,4 +1,4 @@
-import './App.css';
+import { Counter } from './components/Counter';
 import { PokemonList } from './components/PokemonList';
 import Global from './styles/global';
 
@@ -7,6 +7,7 @@ export const App = () => {
     <>
       <Global />
       <PokemonList />
+      {/* <Counter /> */}
     </>
   );
 };

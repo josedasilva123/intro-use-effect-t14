@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-
-import './styles.css'
+import { Container } from './styles';
 
 export const Counter = () => {
     const [counter, setCounter] = useState(0);
@@ -9,11 +8,13 @@ export const Counter = () => {
 
     useEffect(() => {
         console.log('estou dentro do efeito');
-    }, []);
+        console.log(counter);
+    }, [counter]);
 
     function add() {
         console.log('+')
         setCounter(counter + 1)
+        console.log(counter);
     }
 
     function sub() {
@@ -22,12 +23,12 @@ export const Counter = () => {
     }
 
     return (
-        <div className='container'>
+        <Container>
             <p>{counter}</p>
             <div>
                 <button type="button" onClick={add}>+</button>
                 <button type="button" onClick={sub}>-</button>
             </div>
-        </div>
+        </Container>
     );
 }
