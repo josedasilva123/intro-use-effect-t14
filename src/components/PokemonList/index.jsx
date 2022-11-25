@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { api } from "../../services/api"
 import { Button } from "../../styles/Button";
 import { Container } from "../../styles/Container"
+import { PokemonModal } from "../PokemonModal";
 import { List, PokemonCard, PokemonItem } from "./styles";
 
 //    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0');
@@ -53,10 +54,7 @@ export const PokemonList = () => {
 
             {
                 currentPokemon && (
-                    <PokemonItem>
-                        <img src={currentPokemon.sprites.front_default} alt={currentPokemon.name} />
-                        <span>{currentPokemon.name}</span>
-                    </PokemonItem>
+                  <PokemonModal currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} /> 
                 )
             }
 
@@ -74,6 +72,7 @@ export const PokemonList = () => {
                     Next
                 </Button>
             </div>
+
             <List>
                 {
                     pokemon.map(item => 
